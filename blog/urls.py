@@ -2,11 +2,12 @@ from django.urls import path
 
 from .views import *
 
-app_name = 'blog'
+
+app_name = 'SChool'
 
 urlpatterns = [
-    path('product/create', ProductCreateView.as_view()),
-    path('product/delete/<str:pk>', ProductDeleteView.as_view()),
-    path('product/update/<str:pk>', ProductUpdateView.as_view()),
-    path('product/all/', ProductListView.as_view()),
+    path('school/all', SchoolCreateView.as_view()),
+    path('group/all', GroupCreateView.as_view()),
+    path('student/all', StudentCreateView.as_view()),
+
 ]

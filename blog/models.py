@@ -1,4 +1,6 @@
 from django.db import models
+
+
 #
 #
 # #
@@ -67,11 +69,28 @@ from django.db import models
 #         return self.name
 #
 
-class Product(models.Model):
-    name = models.CharField(max_length=100)
-    price = models.IntegerField()
-    quantity = models.IntegerField()
-    comment = models.TextField(max_length=1000)
+class School(models.Model):
+    number = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return self.number
+
+
+class Group(models.Model):
+    number = models.CharField(max_length=100)
+    profile_group = models.CharField(max_length=100)
+    school = models.ForeignKey(School, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.number
+
+
+class Student(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.first_name

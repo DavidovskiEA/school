@@ -5,10 +5,10 @@ from rest_framework.generics import (
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 
-from .models import Product
-from .serializers import ProductSerializer, ProductListSerializer
+from .models import School, Group, Student
+from .serializers import SchoolSerializer, GroupSerializer, StudentSerializer
 
-
+'''
 class ProductCreateView(CreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
@@ -40,3 +40,19 @@ class ProductList(generics.ListAPIView):
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['name']
+'''
+
+
+class SchoolCreateView(CreateAPIView):
+    queryset = School.objects.all()
+    serializer_class = SchoolSerializer
+
+
+class GroupCreateView(CreateAPIView):
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+
+
+class StudentCreateView(CreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer

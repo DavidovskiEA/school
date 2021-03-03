@@ -1,13 +1,20 @@
 from rest_framework import serializers
-from .models import Product
+from .models import School, Group, Student
 
 
-class ProductSerializer(serializers.ModelSerializer):
+class SchoolSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Product
-        fields = ('id', 'name', 'price', 'quantity', 'comment')
+        model = School
+        fields = ('number', "address")
 
-class ProductListSerializer(serializers.ModelSerializer):
+
+class GroupSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Product
-        fields = ('id', 'name')
+        model = Group
+        fields = ('number', 'profile_group', 'school')
+
+
+class StudentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = ('first_name', 'last_name', 'age', 'group')
